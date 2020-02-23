@@ -11,7 +11,8 @@ from datetime import date
 app = Flask(__name__)
 #session secret key, code from Stack Overflow
 app.secret_key = '\xa1\xafO[\xddQ\xb2\x94@\x16\xcb@3\x92#B'
-DIR = os.path.dirname(__file__)
+DIR = os.path.dirname(__file__) or '.'
+DIR += '/'
 
 @app.route("/")
 def root():
