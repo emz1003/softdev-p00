@@ -98,6 +98,8 @@ def profile():
             if (name): #if id is valid user id
                 name = name[0] #retrieve username from tuple
                 isOwner = False #checks if logged in user "owns" the profile
+                isOwner = False #checks if logged in user "owns" the profile
+                isOwner = False #checks if logged in user "owns" the profile
                 if (id == session['userid']): #if logged in user matches owner of blog
                     isOwner = True
                 blogs = tester.getUserBlogs(id) #get all blogs based on id query
@@ -276,9 +278,6 @@ def textError(string):
         return True
     return False
 
-
-
 if __name__ == "__main__":
     db_builder.build_db()
     app.debug = True
-    app.run()

@@ -4,12 +4,16 @@
 #2019-10-28
 
 import sqlite3   #enable control of an sqlite database
+import os
 
 #opens or creates database file
-DB_FILE="blog.db"
+DIR = os.path.dirname(__file__) or '.'
+DIR += '/'
+DB_FILE = DIR + 'blog.db'
 
 #commits the changes after a command
 def exec(cmd):
+    print(DB_FILE)
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     output = c.execute(cmd)
@@ -27,3 +31,5 @@ def build_db():
 
     command = "CREATE TABLE IF NOT EXISTS entry_tbl (entry_id INT, blog_id INT, title TEXT, content TEXT)"
     exec(command)    # run SQL statement
+
+
